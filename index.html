@@ -1,0 +1,231 @@
+<!DOCTYPE html> 
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inicio - Proyecto Informático</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css">
+  <style>
+    /* ***************************************************
+    * ESTILOS BASE Y GENERALES
+    ***************************************************
+    */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Helvetica', 'Arial', sans-serif;
+      color: #ffffff;
+      background: linear-gradient(135deg, #3e4965 0%, #1d1d1d 100%);
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      scroll-behavior: smooth;
+    }
+
+    /* ESTILOS PARA LOGO (si se agrega el menú en esta página) */
+    .main-header .logo img {
+      height: 45px; /* Reducido para ser más sutil */
+      opacity: 0.75; /* Hecho semitransparente */
+      width: auto;
+      object-fit: contain;
+      transition: opacity 0.3s ease;
+    }
+    .main-header .logo img:hover {
+      opacity: 1; 
+    }
+
+
+    /* ***************************************************
+    * ESTILOS DE CONTENIDO (BANNER Y TEXTO CENTRAL)
+    ***************************************************
+    */
+
+    /* Banner superior con brillo */ 
+    .banner { 
+      position: relative; 
+      height: 260px; 
+      margin-top: 8px; 
+      background: url("banner2.jpg") no-repeat center center; 
+      background-size: cover; 
+      overflow: hidden; 
+    } 
+
+    /* Capa de brillo del banner */ 
+    .banner::after { 
+      content: ""; 
+      position: absolute; 
+      inset: 0; 
+      background: radial-gradient(circle at center, rgba(255,255,255,0.4), transparent 70%); 
+      mix-blend-mode: screen; 
+      animation: glowPulse 5s infinite ease-in-out; 
+    } 
+
+    /* Animación del brillo */ 
+    @keyframes glowPulse { 
+      0%, 100% { opacity: 0.3; transform: scale(1); } 
+      50% { opacity: 0.7; transform: scale(1.1); } 
+    } 
+
+    /* Texto central */ 
+    header { 
+      text-align: center; 
+      margin-top: 3rem; 
+      animation: fadeInUp 1s ease-out; 
+    } 
+
+    header h1 { 
+      font-size: 3rem; 
+      font-weight: bold; 
+      margin-bottom: 1rem; 
+      color: #ffffff; 
+      text-shadow: 3px 3px 8px rgba(0,0,0,0.7); 
+    } 
+
+    header p { 
+      font-size: 1.3rem; 
+      margin-bottom: 2.5rem; 
+      color: #e0e0e0; 
+    } 
+
+    /* Animación entrada */ 
+    @keyframes fadeInUp { 
+      from { opacity: 0; transform: translateY(30px); } 
+      to { opacity: 1; transform: translateY(0); } 
+    } 
+
+    /* Botones */ 
+    .botones { 
+      display: flex; 
+      justify-content: center; 
+      gap: 1.5rem; 
+      flex-wrap: wrap; 
+      margin-bottom: auto; 
+      padding: 2rem 1rem; 
+    } 
+
+    /* NUEVO ESTILO DE BOTÓN: Oscuro, semitransparente, con borde azul de acento */
+    .botones a { 
+      display: inline-block; 
+      padding: 1rem 2.5rem; 
+      background: rgba(255, 255, 255, 0.1); /* Fondo semitransparente */
+      color: #ffffff; /* Texto blanco */
+      border: 1px solid #a4d0ff; /* Borde sutil de color de acento */
+      text-decoration: none; 
+      font-weight: bold; 
+      border-radius: 0.7rem; 
+      box-shadow: 0 4px 10px rgba(0,0,0,0.4); 
+      transition: all 0.3s ease; 
+    } 
+
+    /* NUEVO ESTILO DE HOVER: Fondo sólido y brillante */
+    .botones a:hover { 
+      background: #a4d0ff; /* Fondo azul sólido y brillante */
+      color: #1d1d1d; /* Texto oscuro para mayor contraste */
+      transform: scale(1.07); 
+      box-shadow: 0 8px 20px rgba(164, 208, 255, 0.5); /* Sombra azul */
+    } 
+
+
+    /* ***************************************************
+    * ESTILOS DEL FOOTER MODERNO (COMPACTO DE 2 COLUMNAS)
+    ***************************************************
+    */
+    footer {
+        background-color: #1d1d1d; 
+        padding: 2rem 1rem; 
+        border-top: 3px solid #a4d0ff; 
+        font-size: 0.9rem;
+        color: #ccc;
+        line-height: 1.5;
+    }
+
+    .footer-content {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around; 
+        max-width: 800px; 
+        margin: 0 auto;
+        padding-bottom: 0; 
+    }
+
+    .footer-section {
+        flex: 1 1 350px; 
+        margin-bottom: 1.5rem;
+    }
+
+    .footer-section h4 {
+        color: #a4d0ff; 
+        font-size: 1.1rem;
+        margin-bottom: 0.7rem;
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+        padding-bottom: 0.3rem;
+        font-weight: 700;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    .footer-section p, .footer-section a {
+        margin: 0.2rem 0;
+        color: #ccc;
+        text-decoration: none;
+        display: block;
+    }
+
+    .footer-section a:hover {
+        color: #fff;
+        text-decoration: underline;
+    }
+    
+    /* Adaptación a dispositivos móviles */
+    @media (max-width: 768px) {
+        .footer-content {
+            flex-direction: column;
+            max-width: 100%;
+        }
+        .footer-section {
+            flex: 1 1 100%;
+        }
+    }
+  </style>
+</head>
+<body>
+  <div class="banner"></div>
+
+  <header>
+    <h1>Bienvenidos a nuestro Proyecto Informático</h1> 
+    <p>Explorá las distintas secciones de nuestra propuesta:</p>
+  </header>
+
+  <div class="botones">
+    <a href="quienes_somos.html">Quiénes somos</a>
+    <a href="nuestra_propuesta.html">Nuestra propuesta</a>
+    <a href="sistema_localizacion.html">Sistema de Localización</a>
+    <a href="plan_venta.html">Plan de Venta</a> <a href="links.html">Links</a>
+  </div>
+
+  <footer>
+    <div class="footer-content">
+      
+      <div class="footer-section">
+        <h4><i class="fi fi-rr-building"></i> Institucional</h4>
+        <p><strong>Proyecto:</strong> Sistema de Localización de Productos</p>
+        <p><strong>Curso:</strong> 7mo Informática "A"</p>
+        <p><strong>Grupo:</strong> 3</p>
+        <p><strong>Año:</strong> 2025</p>
+      </div>
+
+      <div class="footer-section">
+        <h4><i class="fi fi-rr-users"></i> Equipo de Desarrollo</h4>
+        <p>Mattos, Santino</p>
+        <p>Niz, Ignacio</p>
+        <p>Re, Lucas</p>
+        <p>Viglianco, Patricio</p>
+        <p>Zamit, Ignacio</p>
+      </div>
+
+    </div>
+  </footer>
+</body>
+</html>

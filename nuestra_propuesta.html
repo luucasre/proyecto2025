@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Nuestra Propuesta - Proyecto Informático</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css">
+  <style>
+    /* ===== Header fijo ===== */
+    .main-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      background-color: #2c2f38;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.7rem 1.5rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.4);
+    }
+    .main-header .logo img {
+      height: 70px;
+      opacity: 0.75; 
+      width: auto;
+      object-fit: contain;
+      transition: opacity 0.3s ease;
+    }
+    .main-header .logo img:hover {
+      opacity: 1; 
+    }
+    .nav-links {
+      display: flex;
+      gap: 1.2rem;
+    }
+    .nav-links a {
+      color: #ffffff;
+      text-decoration: none;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.3rem 0.6rem;
+      border-radius: 0.4rem;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+    .nav-links a:hover {
+      background-color: rgba(255,255,255,0.12);
+      transform: translateY(-1px);
+    }
+
+    /* ===== Body ===== */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Helvetica', 'Arial', sans-serif;
+      background: linear-gradient(135deg, #3e4965 0%, #1d1d1d 100%);
+      color: #ffffff;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    .contenedor-principal {
+      padding: 110px 1rem 1rem 1rem;
+      flex: 1;
+    }
+
+    /* Estilos del Título Principal */
+    .titulo-principal {
+      text-align: center;
+      margin-bottom: 2.5rem;
+      font-size: 2.8rem;
+      color: #ffffff; 
+      text-shadow: 3px 3px 8px rgba(0,0,0,0.7); 
+      font-weight: bold;
+      padding-top: 2.5rem; 
+    }
+
+    /* Estilos del Grid y Tarjetas */
+    .propuesta-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 2rem;
+      max-width: 1200px;
+      margin: 0 auto 3rem auto;
+      padding: 0 1rem;
+    }
+
+    .propuesta-card {
+      background: rgba(255,255,255,0.08);
+      border-radius: 12px;
+      padding: 2rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+      border-left: 5px solid #a4d0ff; 
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .propuesta-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.6);
+    }
+
+    /* Títulos de Tarjetas */
+    .propuesta-card h3 {
+      color: #ffffff; 
+      font-size: 1.6rem;
+      margin-top: 0;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      font-weight: 700;
+    }
+    .propuesta-card i {
+      color: #a4d0ff; 
+      font-size: 2.2rem;
+    }
+
+    /* Texto base */
+    .propuesta-card p {
+      color: #e6e6e6;
+      font-size: 1.05rem;
+      line-height: 1.7;
+      text-align: left;
+      margin-bottom: 0;
+    }
+
+    /* Estilo para las palabras clave en negrita (resaltado fuerte) */
+    .propuesta-card strong {
+        color: #a4d0ff; 
+        font-weight: 700;
+        text-shadow: 0 0 5px rgba(164, 208, 255, 0.4); 
+    }
+
+
+    /* Estilos del Footer Moderno */
+    footer {
+        background-color: #1d1d1d; 
+        padding: 2rem 1rem; 
+        border-top: 3px solid #a4d0ff;
+        font-size: 0.9rem;
+        color: #ccc;
+        line-height: 1.5;
+    }
+
+    .footer-content {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around; 
+        max-width: 800px; 
+        margin: 0 auto;
+        padding-bottom: 0; 
+    }
+
+    .footer-section {
+        flex: 1 1 350px; 
+        margin-bottom: 1.5rem;
+    }
+
+    .footer-section h4 {
+        color: #a4d0ff; 
+        font-size: 1.1rem;
+        margin-bottom: 0.7rem;
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+        padding-bottom: 0.3rem;
+        font-weight: 700;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    .footer-section p, .footer-section a {
+        margin: 0.2rem 0;
+        color: #ccc;
+        text-decoration: none;
+        display: block;
+    }
+
+    .footer-section a:hover {
+        color: #fff;
+        text-decoration: underline;
+    }
+    
+    /* Responsive */
+    @media (max-width: 768px) {
+        .propuesta-grid {
+            grid-template-columns: 1fr;
+        }
+        .footer-content {
+            flex-direction: column;
+            max-width: 100%;
+        }
+        .footer-section {
+            flex: 1 1 100%;
+        }
+    }
+  </style>
+</head>
+<body>
+<header class="main-header">
+    <div class="logo"><img src="logo1.jpg" alt="Logo del Proyecto"></div>
+    <nav class="nav-links">
+      <a href="index.html"><i class="fi fi-rr-home"></i> Inicio</a>
+      <a href="quienes_somos.html"><i class="fi fi-rr-users-alt"></i> Quiénes somos</a>
+      <a href="nuestra_propuesta.html"><i class="fi fi-rr-check"></i> Nuestra propuesta</a>
+      <a href="sistema_localizacion.html"><i class="fi fi-rr-browser"></i> Sistema de Localizacion de Productos</a>
+      <a href="plan_venta.html"><i class="fi fi-rr-money-bill-wave"></i> Plan de Venta</a>
+      <a href="links.html"><i class="fi fi-rr-link-alt"></i> Links</a>
+    </nav>
+</header>
+
+  <div class="contenedor-principal">
+    <h1 class="titulo-principal">Nuestra Propuesta de Solución</h1>
+    
+    <p style="text-align: center; font-size: 1.2rem; max-width: 900px; margin: 0 auto 3rem auto; color: #ccc;"> Para entender nuestra propuesta, primero exponemos el desafío. A continuación, detallamos el <strong>problema analizado</strong>, los <strong>objetivos</strong> de nuestro sistema y los <strong>resultados esperados</strong>. </p>
+    <div class="propuesta-grid">
+      
+      <div class="propuesta-card">
+        <h3><i class="fi fi-rr-bulb"></i> Introducción a la Propuesta</h3>
+        <p>
+          Este proyecto busca <strong>optimizar la gestión</strong> de un negocio de repuestos. Proponemos un sistema informático que transforma el proceso de inventario manual en uno <strong>digital, rápido y eficiente</strong>.
+        </p>
+      </div>
+
+      <div class="propuesta-card">
+        <h3><i class="fi fi-rr-star"></i> Nuestra Misión</h3>
+        <p>
+          Impulsar la <strong>digitalización</strong> local, ofreciendo herramientas que faciliten el trabajo y optimicen la gestión de productos. Queremos que el cliente se enfoque en brindar un <strong>servicio de excelencia y calidad</strong>.
+        </p>
+      </div>
+
+      <div class="propuesta-card">
+        <h3><i class="fi fi-rr-exclamation"></i> Retos Actuales del Cliente</h3>
+        <p>
+          El negocio lidia con un <strong>amplio catálogo</strong>, errores frecuentes y búsquedas manuales que <strong>consumen tiempo</strong>. La falta de <strong>trazabilidad</strong> dificulta el control preciso del stock en tiempo real.
+        </p>
+      </div>
+      
+      <div class="propuesta-card">
+        <h3><i class="fi fi-rr-target"></i> Objetivos del Sistema</h3>
+        <p>
+          <strong>Optimizar el inventario</strong> digitalmente, <strong>facilitar la localización inmediata</strong> de productos y <strong>reducir los tiempos</strong> de trabajo del personal, mejorando la eficiencia general.
+        </p>
+      </div>
+
+      <div class="propuesta-card">
+        <h3><i class="fi fi-rr-settings"></i> Solución Propuesta</h3>
+        <p>
+          Un <strong>Sistema Web de Localización</strong> que registra cada repuesto con su <strong>ubicación física específica</strong>. Permite consultar la disponibilidad en tiempo real a través de una <strong>interfaz intuitiva</strong>, actuando como un "mapa digital" del almacén.
+        </p>
+      </div>
+
+      <div class="propuesta-card">
+        <h3><i class="fi fi-rr-chart-line"></i> Beneficios Esperados</h3>
+        <p>
+          Mayor <strong>productividad</strong>, <strong>reducción de errores</strong> en pedidos y una <strong>drástica disminución del tiempo de búsqueda</strong>. Esto mejora la rapidez del servicio y la <strong>satisfacción del cliente</strong> final.
+        </p>
+      </div>
+
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-content">
+      
+      <div class="footer-section">
+        <h4><i class="fi fi-rr-building"></i> Institucional</h4>
+        <p><strong>Proyecto:</strong> Sistema de Localización de Productos</p>
+        <p><strong>Curso:</strong> 7mo Informática "A"</p>
+        <p><strong>Grupo:</strong> 3</p>
+        <p><strong>Año:</strong> 2025</p>
+      </div>
+
+      <div class="footer-section">
+        <h4><i class="fi fi-rr-users"></i> Equipo de Desarrollo</h4>
+        <p>Mattos, Santino</p>
+        <p>Niz, Ignacio</p>
+        <p>Re, Lucas</p>
+        <p>Viglianco, Patricio</p>
+        <p>Zamit, Ignacio</p>
+      </div>
+
+    </div>
+  </footer>
+</body>
+</html>
